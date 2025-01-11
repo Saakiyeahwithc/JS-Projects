@@ -34,7 +34,7 @@ body {
     margin-top: 25px;
 }
 
-.config-options .-options {
+.config-options .category-options {
     display: grid;
     gap: 15px;
     grid-template-columns: repeat(2, 1fr);
@@ -48,6 +48,12 @@ body {
     justify-content: center;
 }
 
+.config-options button.active {
+    color: #2b6777;
+    border-color: #2b6777;
+    background: #2b6777;
+}
+
 .config-options button {
     padding: 12px;
     font-size: 0.938 rem;
@@ -55,5 +61,37 @@ body {
     background: #fff;
     border-radius: 6px;
     cursor: pointer;
-    border: 1px solid #;
+    border: 1px solid #2b6777;
+    transition: 0.3s ease;
+}
+
+.question-options button:hover {
+    background: #2b6777;
+    text-decoration-color: #fff;
+}
+
+.category-options button:hover {
+    background: #2b6777;
+}
+
+.question-options button {
+    flex: 1 1 10%;
+}
+
+.config-container .start-quz-btn {
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-top: 30px;
+    font-weight: 500;
+    background: #2b6777;
+    padding: 13px 25px;
+    font-size: 1rem;
+    border-radius: 6px;
+    transition: background 0.3s ease;
+}
+
+.config-container .start-quz-btn:hover {
+    background: #c8d8e4;
+    text-decoration-color:;
 }
