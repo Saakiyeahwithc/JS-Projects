@@ -17,13 +17,18 @@ body {
     background: #52ab98;
 }
 
-.config-container {
-    width: 415px;
-    padding: 25px;
-    text-align: center;
+:where(.config-container, .quiz-container) {
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.13);
+}
+
+.config-container {
+    display: none;
+    width: 415px;
+    padding: 25px;
+    text-align: center;
+
 }
 
 .config-container .config-title {
@@ -65,13 +70,9 @@ body {
     transition: 0.3s ease;
 }
 
-.question-options button:hover {
+.config-options button:hover {
     background: #2b6777;
-    text-decoration-color: #fff;
-}
-
-.category-options button:hover {
-    background: #2b6777;
+    color: #fff
 }
 
 .question-options button {
@@ -92,6 +93,28 @@ body {
 }
 
 .config-container .start-quz-btn:hover {
-    background: #c8d8e4;
-    text-decoration-color:;
+    background: #52ab98;
+    color: #000;
+}
+
+.config-container button.active {
+    background: #2b6777;
+    color: #fff;
+}
+
+.quiz-container {
+    width: 480px;
+}
+
+.quiz-container .quiz-header {
+    display: flex;
+    align-items: center;
+    padding: 14px 25px;
+    justify-content: space-between;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.09);
+}
+
+.quiz-content .question-text {
+    font-size: 1.5rem;
+    font-weight: 600;
 }
