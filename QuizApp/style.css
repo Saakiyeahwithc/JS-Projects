@@ -70,7 +70,8 @@ body {
     transition: 0.3s ease;
 }
 
-.config-options button:hover {
+.config-options button:hover,
+.quiz-container .answer-option:hover {
     background: #2b6777;
     color: #fff
 }
@@ -79,11 +80,11 @@ body {
     flex: 1 1 10%;
 }
 
-.config-container .start-quz-btn {
+.config-container .start-quz-btn,
+.quiz-footer .next-question-btn {
     color: #fff;
     border: none;
     cursor: pointer;
-    margin-top: 30px;
     font-weight: 500;
     background: #2b6777;
     padding: 13px 25px;
@@ -92,8 +93,14 @@ body {
     transition: background 0.3s ease;
 }
 
-.config-container .start-quz-btn:hover {
-    background: #52ab98;
+/* .config-container .start-quz-btn,
+.quiz-footer .next-question-btn {
+    margin-top: 30px;
+} */
+
+.config-container .start-quz-btn:hover,
+.quiz-footer .next-question-btn:hover {
+    background: #5caa99;
     color: #000;
 }
 
@@ -114,7 +121,78 @@ body {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.09);
 }
 
+.quiz-header .quiz-title {
+    font-size: 1.43rem;
+    font-weight: 700;
+}
+
+.quiz-header .quiz-timer {
+    display: flex;
+    width: 70px;
+    gap: 5px;
+    align-items: center;
+    padding: 7px 9px;
+    border-radius: 6px;
+    background-color: #c8d8e4;
+}
+
+.quiz-header .quiz-timer span {
+    font-size: 1.4rem;
+}
+
+.quiz-container .quiz-content {
+    padding: 20px 25px 25px;
+}
+
 .quiz-content .question-text {
     font-size: 1.5rem;
     font-weight: 600;
+}
+
+.quiz-container .answer-options {
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+    list-style: none;
+    margin-top: 20px;
+}
+
+.quiz-content .answer-option {
+    display: flex;
+    align-items: center;
+    padding: 13px 16px;
+    background: #c8d8e4;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    justify-content: space-between;
+    border: 1px solid #2b6777;
+    transition: 0.3s ease;
+}
+
+.quiz-content .answer-option{
+    
+}
+
+.quiz-container .quiz-footer {
+    padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #2b6777;
+}
+
+.quiz-footer .question-status {
+    font-weight: 500;
+}
+
+.quiz-footer .question-status b {
+    font-weight: 600;
+}
+
+.quiz-footer .next-question-btn {
+    display: inline-flex;
+    gap: 5px;
+    align-items: center;
+    padding: 9px 17px;
 }
