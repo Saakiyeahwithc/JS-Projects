@@ -17,18 +17,17 @@ body {
     background: #52ab98;
 }
 
-:where(.config-container, .quiz-container) {
+:where(.config-container, .quiz-container, .result-container) {
+    display: none;
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.13);
 }
 
 .config-container {
-    display: none;
     width: 415px;
     padding: 25px;
     text-align: center;
-
 }
 
 .config-container .config-title {
@@ -81,11 +80,13 @@ body {
 }
 
 .config-container .start-quz-btn,
-.quiz-footer .next-question-btn {
+.quiz-footer .next-question-btn,
+.result-container .try-again-btn {
     color: #fff;
     border: none;
     cursor: pointer;
     font-weight: 500;
+    margin-top: 15px;
     background: #2b6777;
     padding: 13px 25px;
     font-size: 1rem;
@@ -93,13 +94,10 @@ body {
     transition: background 0.3s ease;
 }
 
-/* .config-container .start-quz-btn,
-.quiz-footer .next-question-btn {
-    margin-top: 30px;
-} */
 
 .config-container .start-quz-btn:hover,
-.quiz-footer .next-question-btn:hover {
+.quiz-footer .next-question-btn:hover,
+.result-container .try-again-btn:hover {
     background: #5caa99;
     color: #000;
 }
@@ -110,6 +108,7 @@ body {
 }
 
 .quiz-container {
+    display: block;
     width: 480px;
 }
 
@@ -170,8 +169,22 @@ body {
     transition: 0.3s ease;
 }
 
-.quiz-content .answer-option{
-    
+.quiz-content .answer-option span {
+    display: block;
+    flex-shrink: 0;
+    margin: -4px -3px -4px 12px;
+}
+
+.quiz-content .answer-option.incorrect {
+    border-color: #b7e1c1;
+    background: #d4edda;
+    color: #155724;
+}
+
+.quiz-content .answer-option.correct {
+    border-color: #f4bec3;
+    background: #f8d7da;
+    color: #721c24;
 }
 
 .quiz-container .quiz-footer {
@@ -186,7 +199,8 @@ body {
     font-weight: 500;
 }
 
-.quiz-footer .question-status b {
+.quiz-footer .question-status b,
+.result-container .result-message b {
     font-weight: 600;
 }
 
@@ -195,4 +209,31 @@ body {
     gap: 5px;
     align-items: center;
     padding: 9px 17px;
+}
+
+.result-container {
+    display: block;
+    text-align: center;
+    padding: 40px;
+    width: 410px;
+}
+
+.result-container .result-img {
+    width: 110px;
+}
+
+.result-container .result-title {
+    margin-top: 30px;
+}
+
+.result-container .result-message {
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin-top: 15px;
+}
+
+.result-container .try-again-btn {
+    margin-top: 30px;
+    padding: 12px 20px;
+
 }

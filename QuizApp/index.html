@@ -12,7 +12,7 @@
 </head>
 
 <body>
-
+    <!-- Quiz Confiugration Container -->
     <div class="config-container">
         <h2 class="config-title">Quiz Configuration</h2>
         <h4 class="option-title">Select Category</h4>
@@ -39,7 +39,7 @@
 
         <button class="start-quz-btn">Start Quiz</button>
     </div>
-
+    <!-- Quiz Container -->
     <div class="quiz-container">
         <header class="quiz-header">
             <h2 class="quiz-title">Quiz Application</h2>
@@ -55,11 +55,11 @@
                 <li class="answer-option">
                     <p>create function myFunction()</p>
                 </li>
-                <li class="answer-option">
+                <li class="answer-option correct">
                     <p>function myFunction()</p>
                     <span class="material-symbols-outlined">check_circle</span>
                 </li>
-                <li class="answer-option">
+                <li class="answer-option incorrect">
                     <p>def function myFunction()</p>
                     <span class="material-symbols-outlined">cancel</span>
                 </li>
@@ -78,12 +78,17 @@
                 </button>
         </div>
 
-
-
+    </div>
+    <!-- Result Container -->
+    <div class="result-container">
+        <img src="./quiz-over.png" alt="yaaay!" class="result-img">
+        <h2 class="result-title">Quiz Completed!</h2>
+        <p class="result-message">You answered <b>3</b> out if <b>5</b> questions correctly. Great Effort! </p>
+        <button class="try-again-btn">Try Again</button>
     </div>
 
-
-
+    <script src="javascript/script.js"></script>
+    <script src="javascript/questions.js"></script>
 </body>
 
 </html>
