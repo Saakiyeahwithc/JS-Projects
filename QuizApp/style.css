@@ -175,13 +175,13 @@ body {
     margin: -4px -3px -4px 12px;
 }
 
-.quiz-content .answer-option.incorrect {
+.quiz-content .answer-option.correct {
     border-color: #b7e1c1;
     background: #d4edda;
     color: #155724;
 }
 
-.quiz-content .answer-option.correct {
+.quiz-content .answer-option.incorrect {
     border-color: #f4bec3;
     background: #f8d7da;
     color: #721c24;
