@@ -25,6 +25,7 @@ body {
 }
 
 .config-container {
+    display: block;
     width: 415px;
     padding: 25px;
     text-align: center;
@@ -108,7 +109,6 @@ body {
 }
 
 .quiz-container {
-    display: block;
     width: 480px;
 }
 
@@ -207,12 +207,12 @@ body {
 .quiz-footer .next-question-btn {
     display: inline-flex;
     gap: 5px;
+    visibility: hidden;
     align-items: center;
     padding: 9px 17px;
 }
 
 .result-container {
-    display: block;
     text-align: center;
     padding: 40px;
     width: 410px;
