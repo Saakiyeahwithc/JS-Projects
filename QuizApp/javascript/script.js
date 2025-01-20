@@ -62,6 +62,9 @@ const getRandomQuestion = () => {
 
     //Filter out already asked questions and choose a random one
     const availableQuestions = categoryQuestions.filter((_, index) => !questionIndexHistory.includes(index));
+    if (availableQuestions.length === 0) {
+        return showQuizResult(); // Handle case where no questions are left
+    }
     const randomQuestion = categoryQuestions[Math.floor(Math.random() * categoryQuestions.length)];
 
     questionIndexHistory.push(categoryQuestions.indexOf(randomQuestion));
@@ -125,6 +128,9 @@ const startQuiz = () => {
     configContainer.style.display = "none";
     quizContainer.style.display = "block";
 
+    quizCategory = configContainer.querySelector(".category-option.active").textContent;
+    currentQuestion = parseInt(configContainer.querySelector(".question-option.active").textContent);
+
     renderQuestion();
 }
 
@@ -140,6 +146,14 @@ const resetQuiz = () => {
 
 renderQuestion();
 
+//Highlight the selected option on click - category or no. of question
+document.querySelectorAll(".category-option, .question-option").forEach(option => {
+    option.addEventListener("click", () => {
+        option.parentNode.querySelector(".active").classList.remove("active");
+        option.classList.add("active");
+    });
+});
+
 nextQuestionBtn.addEventListener("click", renderQuestion);
-document.querySelector(".try-again-btn").addEventListner("click", resetQuiz);
-document.querySelector(".start-quiz").addEventListner("click", startQuiz());
+document.querySelector(".try-again-btn").addEventListener("click", resetQuiz);
+document.querySelector(".start-quz-btn").addEventListener("click", startQuiz);
