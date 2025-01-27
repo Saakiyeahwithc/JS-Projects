@@ -1,0 +1,44 @@
+body {
+    --accent-color: #23486A;
+    --background-color: white;
+    --text-color: white;
+    --button-text-color: var(--background-color);
+    --transition-delay: 1s;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+body.dark {
+    --accent-color: #EFB036;
+    --background-color: #09122C;
+    --text-color: white;
+
+
+}
+
+
+
+
+.title {
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+.theme-toggle-button {
+    background-color: var(--accent-color);
+    color: var(--button-text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: .3em;
+    padding: .5em 1em;
+}
