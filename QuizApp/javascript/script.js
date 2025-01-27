@@ -9,9 +9,9 @@ const resultContainer = document.querySelector(".result-container");
 const Quiz_Time_Limit = 15;
 let currentTime = Quiz_Time_Limit;
 let timer = null;
-let quizCategory = "entertainment";
-let currentQuestion = null;
-let numberOfQuestions = 5;
+let quizCategory = "programming";
+let currentQuestion = 0;
+let numberOfQuestions = null;
 let isCorrect = true;
 const questionIndexHistory = [];
 let correctAnswerCount = 0;
@@ -62,10 +62,11 @@ const getRandomQuestion = () => {
 
     //Filter out already asked questions and choose a random one
     const availableQuestions = categoryQuestions.filter((_, index) => !questionIndexHistory.includes(index));
+    console.log(availableQuestions)
     if (availableQuestions.length === 0) {
         return showQuizResult(); // Handle case where no questions are left
     }
-    const randomQuestion = categoryQuestions[Math.floor(Math.random() * categoryQuestions.length)];
+    const randomQuestion = availableQuestions[Math.floor(Math.random() * availableQuestions.length)];
 
     questionIndexHistory.push(categoryQuestions.indexOf(randomQuestion));
     return randomQuestion;
@@ -99,7 +100,7 @@ const handleAnswer = (option, answerIndex) => {
 
 //render the current question and its options in the quiz
 const renderQuestion = () => {
-    currentQuestion = getRandomQuestion();
+    currentQuestion = getRandomQuestion;
     if (!currentQuestion)
         return;
     console.log(currentQuestion);
@@ -123,7 +124,7 @@ const renderQuestion = () => {
     });
 }
 
-//
+//start quiz 
 const startQuiz = () => {
     configContainer.style.display = "none";
     quizContainer.style.display = "block";
