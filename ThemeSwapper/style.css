@@ -1,7 +1,7 @@
 body {
     --accent-color: #23486A;
     --background-color: white;
-    --text-color: white;
+    --text-color: black;
     --button-text-color: var(--background-color);
     --transition-delay: 1s;
 
@@ -14,6 +14,7 @@ body {
 
     background-color: var(--background-color);
     color: var(--text-color);
+    transition: var(--transition-delay);
 }
 
 body.dark {
@@ -30,6 +31,8 @@ body.dark {
 .title {
     margin: 0;
     margin-bottom: 0.5rem;
+    justify-content: center;
+    align-items: center;
 }
 
 .theme-toggle-button {
@@ -40,5 +43,44 @@ body.dark {
     justify-content: center;
     cursor: pointer;
     border-radius: .3em;
+    border: none;
     padding: .5em 1em;
+    transition: var(--transition-delay);
+    transform: scale(1);
+}
+
+.icon {
+    margin-right: .5em;
+}
+
+.theme-toggle-button:hover {
+    transform: scale(1.1);
+}
+
+.sun-moon-container {
+    --rotation: 0;
+
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    height: 200vmin;
+    transform: rotate(var(--rotation));
+}
+
+.sun,
+.moon {
+    position: absolute;
+}
+
+.sun {
+    top: 5%;
+}
+
+.moon {
+    top: 5%;
+    opacity: 0;
+}
+
+.moon .dark{
+    opacity: 1;
 }
