@@ -1,5 +1,5 @@
 body {
-    --accent-color: #23486A;
+    --accent-color: #000957;
     --background-color: white;
     --text-color: black;
     --button-text-color: var(--background-color);
@@ -11,7 +11,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-
+    overflow: hidden;
     background-color: var(--background-color);
     color: var(--text-color);
     transition: var(--transition-delay);
@@ -24,9 +24,6 @@ body.dark {
 
 
 }
-
-
-
 
 .title {
     margin: 0;
@@ -51,6 +48,13 @@ body.dark {
 
 .icon {
     margin-right: .5em;
+    fill: white;
+    transition: var(--transition-delay);
+}
+
+.dark .icon {
+    fill: black;
+    transition: var(--transition-delay);
 }
 
 .theme-toggle-button:hover {
@@ -62,25 +66,42 @@ body.dark {
 
     position: absolute;
     pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     top: 0;
+    outline: none;
     height: 200vmin;
-    transform: rotate(var(--rotation));
+    transform: rotate(calc(var(--rotation)*1deg));
+    transition: transform var(--transition-delay);
 }
 
 .sun,
 .moon {
     position: absolute;
+    transition: opacity, fill var(--transition-delay);
+    width: 30px;
+    height: 30px;
+    fill: var(--accent-color);
 }
 
 .sun {
     top: 5%;
+    opacity: 1;
 }
 
-.moon {
-    top: 5%;
+.dark .sun {
     opacity: 0;
 }
 
-.moon .dark{
+.moon {
+    bottom: 5%;
+    opacity: 0;
+}
+
+.dark .moon {
     opacity: 1;
+    fill: #EFB036;
+    transform: rotate(180deg);
+    transition: var(--transition-delay);
 }
