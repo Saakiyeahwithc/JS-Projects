@@ -6,13 +6,13 @@ const questionStatus = document.querySelector(".question-status");
 const timerDisplay = document.querySelector(".time-duration");
 const resultContainer = document.querySelector(".result-container");
 
+//Quiz state variables
 const Quiz_Time_Limit = 15;
 let currentTime = Quiz_Time_Limit;
 let timer = null;
 let quizCategory = "programming";
-let currentQuestion = 0;
-let numberOfQuestions = null;
-let isCorrect = true;
+let currentQuestion = null;
+let numberOfQuestions = 0;
 const questionIndexHistory = [];
 let correctAnswerCount = 0;
 
@@ -44,6 +44,7 @@ const startTimer = () => {
             clearInterval(timer);
             highlightCorrectAnswer();
             nextQuestionBtn.style.visibility = "visible";
+            quizContainer.querySelectorAll(".quiz-timer").style.background = "#c31402";
 
             //Disable all other answer option when one option is selected
             answerOptions.querySelectorAll(".answer-option").forEach(option => option.style.pointerEvents = "none");
@@ -70,6 +71,7 @@ const getRandomQuestion = () => {
 
     questionIndexHistory.push(categoryQuestions.indexOf(randomQuestion));
     return randomQuestion;
+    // console.log()
 }
 
 //highlight correct answer option and add icon
@@ -100,10 +102,9 @@ const handleAnswer = (option, answerIndex) => {
 
 //render the current question and its options in the quiz
 const renderQuestion = () => {
-    currentQuestion = getRandomQuestion;
+    currentQuestion = getRandomQuestion();
     if (!currentQuestion)
-        return;
-    console.log(currentQuestion);
+        return console.log(currentQuestion);
 
     resetTimer();
     startTimer();
@@ -111,11 +112,13 @@ const renderQuestion = () => {
     //Update the UI
     answerOptions.innerHTML = "";
     nextQuestionBtn.style.visibility = "hidden";
+    quizContainer.querySelectorAll(".quiz-timer").style.background = "#c8d8e4";
     document.querySelector(".question-text").textContent = currentQuestion.question;
+
     questionStatus.innerHTML = `<b>${questionIndexHistory.length}</b> of <b>${numberOfQuestions}</b> Questions`;
 
     //Create option <li> elements, append them, and add click event Listners
-    currentQuestion.options.forEach((option, index) => {
+    currentQuestion.option.forEach((option, index) => {
         const li = document.createElement("li");
         li.classList.add("answer-option");
         li.textContent = option;
@@ -148,13 +151,13 @@ const resetQuiz = () => {
 renderQuestion();
 
 //Highlight the selected option on click - category or no. of question
-document.querySelectorAll(".category-option, .question-option").forEach(option => {
+document.querySelectorAll(".category-option,.question-option").forEach(option => {
     option.addEventListener("click", () => {
         option.parentNode.querySelector(".active").classList.remove("active");
-        option.classList.add("active");
+        option.classList.add("active")
     });
 });
 
 nextQuestionBtn.addEventListener("click", renderQuestion);
 document.querySelector(".try-again-btn").addEventListener("click", resetQuiz);
-document.querySelector(".start-quz-btn").addEventListener("click", startQuiz);
+document.querySelector(".start-quiz-btn").addEventListener("click", startQuiz);

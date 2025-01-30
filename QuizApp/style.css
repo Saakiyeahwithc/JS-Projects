@@ -115,7 +115,7 @@ body {
     flex: 1 1 10%;
 }
 
-.config-container .start-quz-btn,
+.config-container .start-quiz-btn,
 .quiz-footer .next-question-btn,
 .result-container .try-again-btn {
     color: #fff;
@@ -131,7 +131,7 @@ body {
 }
 
 
-.config-container .start-quz-btn:hover,
+.config-container .start-quiz-btn:hover,
 .quiz-footer .next-question-btn:hover,
 .result-container .try-again-btn:hover {
     background: #5caa99;
@@ -168,6 +168,7 @@ body {
     padding: 7px 9px;
     border-radius: 6px;
     background-color: #c8d8e4;
+    transition: 0.3s ease;
 }
 
 .quiz-header .quiz-timer span {
